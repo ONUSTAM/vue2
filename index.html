@@ -6,11 +6,11 @@
   </head>
   <body>
     <div id="app">
-      <h1>Hello App!!</h1>
+      <h1>Hello App!?</h1>
       <p>
         <!-- ナビゲーション向けに v-link ディレクティブを使用 -->
-        <a v-link="{ path: '/pageA' }">Go to PageA</a>
-        <a v-link="{ path: '/pageB' }">Go to PageB</a>
+        <a class="btn btn-default" v-link="{ path: '/pageA' }">Go to PageA</a>
+        <a class="btn btn-primary" v-link="{ path: '/pageB' }">Go to PageB</a>
       </p>
       <!-- route outlet -->
       <router-view></router-view>

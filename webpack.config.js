@@ -9,6 +9,14 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.vue$/, loader: 'vue' },
+      {
+        test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
+        loader: 'file'
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass']
+      }
     ]
   },
   plugins: [
