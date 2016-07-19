@@ -50,23 +50,27 @@
 	var _ = __webpack_require__(5);
 	var bootstrapSCSS = __webpack_require__(7);
 
-	// var app = Vue.extend(require('../src/components/app.vue'));
-	// var App = Vue.extend({});
 	var App = Vue.extend(__webpack_require__(16));
 	var headerNav = Vue.extend(__webpack_require__(18));
-	var BasicPlan = Vue.extend(__webpack_require__(20));
+	var footerNav = Vue.extend(__webpack_require__(152));
+	var PlanList = Vue.extend(__webpack_require__(145));
+	var DeviceList = Vue.extend(__webpack_require__(139));
 	var PageA = Vue.extend(__webpack_require__(26));
 	var PageB = Vue.extend(__webpack_require__(134));
 
 	Vue.use(VueRouter)
 	Vue.component('header-nav', headerNav)
+	Vue.component('footer-nav', footerNav)
 
 
 	var router = new VueRouter();
 
 	router.map({
-	  '/BasicPlan': {
-	    component: BasicPlan
+	  '/PlanList': {
+	    component: PlanList
+	  },
+	  '/DeviceList': {
+	    component: DeviceList
 	  },
 	  '/pageA': {
 	    component: PageA
@@ -39894,6 +39898,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
+	__vue_script__ = __webpack_require__(144)
+	if (__vue_script__ &&
+	    __vue_script__.__esModule &&
+	    Object.keys(__vue_script__).length > 1) {
+	  console.warn("[vue-loader] src/components/app.vue: named exports in *.vue files are ignored.")}
 	__vue_template__ = __webpack_require__(17)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
@@ -39904,7 +39913,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-344eca59/app.vue"
+	  var id = "_v-14d4cddc/app.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -39916,7 +39925,7 @@
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div id=\"app\">\n  <!-- header -->\n  <div id=\"header\">\n    <header-nav></header-nav>\n  </div>\n  <!-- main view -->\n\n\n  <router-view\n    class=\"view\"\n    keep-alive\n    transition\n    transition-mode=\"out-in\">\n  </router-view>\n</div>\n";
+	module.exports = "\n<div id=\"app\">\n  <!-- header -->\n  <div id=\"header\">\n    <header-nav></header-nav>\n  </div>\n\n  <!-- main view -->\n  <router-view\n    class=\"view\"\n    keep-alive\n    transition\n    transition-mode=\"out-in\">\n  </router-view>\n\n  <pre>\n    {{requestParams | json 2}}\n  </pre>\n\n  <footer-nav></footer-nav>\n\n</div>\n";
 
 /***/ },
 /* 18 */
@@ -39933,7 +39942,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-2ae1bd0e/headerNav.vue"
+	  var id = "_v-592c5b5e/headerNav.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -39945,78 +39954,12 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div id=\"headerNav\">\n  <nav class=\"navbar navbar-default\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\">a</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n    </div>\n\n    <div class=\"container-fluid\">\n      <a class=\"navbar-brand\" href=\"#\">Brand</a>\n    </div>\n\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav\">\n        <li><a  v-link=\"{ path: '/BasicPlan' }\">BasicPlan</a></li>\n        <li><a  v-link=\"{ path: '/pageA' }\">Link 1</a></li>\n        <li><a  v-link=\"{ path: '/pageB' }\">Link 2</a></li>\n      </ul>\n    </div>\n  </nav>\n</div>\n";
+	module.exports = "\n<div id=\"headerNav\">\n  <nav class=\"navbar navbar-default\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n    </div>\n\n    <div class=\"container-fluid\">\n      <a class=\"navbar-brand\" href=\"#\">Brand</a>\n    </div>\n\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav\">\n        <li><a v-link=\"{ path: '/PlanList' }\">PlanList</a></li>\n        <li><a v-link=\"{ path: '/DeviceList' }\">DeviceList</a></li>\n        <li><a v-link=\"{ path: '/pageA' }\">Link 1</a></li>\n        <li><a v-link=\"{ path: '/pageB' }\">Link 2</a></li>\n      </ul>\n    </div>\n  </nav>\n</div>\n";
 
 /***/ },
-/* 20 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __vue_script__, __vue_template__
-	__webpack_require__(21)
-	__vue_script__ = __webpack_require__(24)
-	if (__vue_script__ &&
-	    __vue_script__.__esModule &&
-	    Object.keys(__vue_script__).length > 1) {
-	  console.warn("[vue-loader] src\\components\\basicPlan.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(25)
-	module.exports = __vue_script__ || {}
-	if (module.exports.__esModule) module.exports = module.exports.default
-	if (__vue_template__) {
-	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
-	}
-	if (false) {(function () {  module.hot.accept()
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), false)
-	  if (!hotAPI.compatible) return
-	  var id = "_v-1eb3aca2/basicPlan.vue"
-	  if (!module.hot.data) {
-	    hotAPI.createRecord(id, module.exports)
-	  } else {
-	    hotAPI.update(id, module.exports, __vue_template__)
-	  }
-	})()}
-
-/***/ },
-/* 21 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(22);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js!./../../node_modules/sass-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./basicPlan.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js!./../../node_modules/sass-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./basicPlan.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 22 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(9)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".blue {\n  color: #00f; }\n\ninput[type=\"radio\"] {\n  display: none; }\n\n.rdo_card {\n  display: inline-block;\n  width: 100%;\n  height: 40px;\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); }\n", ""]);
-
-	// exports
-
-
-/***/ },
+/* 20 */,
+/* 21 */,
+/* 22 */,
 /* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -40239,24 +40182,8 @@
 
 
 /***/ },
-/* 24 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	module.exports = {
-	  data: function data() {
-	    return {};
-	  }
-	};
-
-/***/ },
-/* 25 */
-/***/ function(module, exports) {
-
-	module.exports = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-xs-8\">\n      <h3>BasicPlan</h3>\n    </div>\n    <div class=\"col-xs-4\">\n      <p>xxxxx 1 : <a href=\"#\">here</a></p>\n      <p>xxxxx 2 : <a href=\"#\">here</a></p>\n      <p>xxxxx 3 : <a href=\"#\">here</a></p>\n    </div>\n  </div>\n  <h5>Selection: {{ picked }}</h5>\n  <div class=\"row\">\n    <div class=\"col-xs-6\">\n      <input type=\"radio\" id=\"one\" value=\"One\" v-model=\"picked\">\n      <label for=\"one\" class=\"btn btn-default rdo_card\">One</label>\n    </div>\n    <div class=\"col-xs-6\">\n      <input type=\"radio\" id=\"two\" value=\"Two\" v-model=\"picked\">\n      <label for=\"two\" class=\"btn btn-default rdo_card\">Two</label>\n    </div>\n  </div>\n  <div v-if=\"picked === One\">\n    one\n  </div>\n  <div v-if=\"picked === Tow\">\n    two\n  </div>\n</div>\n";
-
-/***/ },
+/* 24 */,
+/* 25 */,
 /* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -40266,7 +40193,7 @@
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
-	  console.warn("[vue-loader] src\\components\\pageA.vue: named exports in *.vue files are ignored.")}
+	  console.warn("[vue-loader] src/components/pageA.vue: named exports in *.vue files are ignored.")}
 	__vue_template__ = __webpack_require__(133)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
@@ -40277,7 +40204,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-744e174a/pageA.vue"
+	  var id = "_v-4b61460d/pageA.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -40365,6 +40292,7 @@
 	        url: 'https://qiita.com/api/v2/items?page=1&per_page=5',
 	        dataType: 'json',
 	        success: function success(json) {
+	          console.log(json);
 	          that.$data.items = json;
 	        },
 	        data: null
@@ -54422,7 +54350,7 @@
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
-	  console.warn("[vue-loader] src\\components\\pageB.vue: named exports in *.vue files are ignored.")}
+	  console.warn("[vue-loader] src/components/pageB.vue: named exports in *.vue files are ignored.")}
 	__vue_template__ = __webpack_require__(138)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
@@ -54433,7 +54361,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-745c2ecb/pageB.vue"
+	  var id = "_v-4b6f5d8e/pageB.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -54500,6 +54428,278 @@
 /***/ function(module, exports) {
 
 	module.exports = "\n\n\n\n\n\n\n<h1 class=\"blue\">apge B</h1>\n<p>\n  this page is B!!!\n</p>\n<p>\n  msg = {{msg}}\n</p>\n\n";
+
+/***/ },
+/* 139 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(140)
+	__vue_script__ = __webpack_require__(142)
+	if (__vue_script__ &&
+	    __vue_script__.__esModule &&
+	    Object.keys(__vue_script__).length > 1) {
+	  console.warn("[vue-loader] src/components/deviceList.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(143)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) {
+	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
+	}
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  var id = "_v-026189a9/deviceList.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 140 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(141);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(23)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js!./../../node_modules/sass-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./deviceList.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js!./../../node_modules/sass-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./deviceList.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 141 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(9)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "#example-1 h3 {\n  word-wrap: break-word;\n  overflow-wrap: break-word; }\n\n.cardList .wrap {\n  border: solid 1px #ddd;\n  border-radius: 2px;\n  padding: 8px;\n  margin: 4px 0;\n  height: 320px; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 142 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+
+	var moment = __webpack_require__(30);
+
+	module.exports = {
+	  data: function data() {
+	    return {
+	      items: ''
+	    };
+	  },
+	  ready: function ready() {
+	    this.getJson();
+	    console.log('parent: ', this.$parent.requestParams);
+	  },
+	  methods: {
+	    getJson: function getJson() {
+	      var that = this;
+	      $.ajax({
+	        type: 'GET',
+	        crossDomain: true,
+	        url: 'https://qiita.com/api/v2/items?page=1&per_page=5',
+	        dataType: 'json',
+	        success: function success(json) {
+	          that.$data.items = format(json);
+	        },
+	        data: null
+	      });
+	    }
+	  }
+	};
+
+	function format(list) {
+	  return _.map(list, function (value, key, object) {
+
+	    return {
+	      title: value.title,
+	      created_at: moment(value.created_at).format('YYYY/MM/DD HH:mm:ss ddd')
+	    };
+	  });
+	}
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ },
+/* 143 */
+/***/ function(module, exports) {
+
+	module.exports = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-xs-12 col-sm-6 col-md-4 col-lg-3 cardList\" v-for=\"item in items\">\n      <div class=\"card card-block\">\n        <div class=\"wrap\">\n          <h4 class=\"card-title\">{{ item.title }}</h3>\n          <p class=\"card-text\">With supporting text below as a natural lead-in to additional content.</p>\n          <p>\n            {{ item.created_at }}\n          </p>\n          <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n        </div>\n      </div>\n    </div>\n  </div>\n\n</div>\n";
+
+/***/ },
+/* 144 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = {
+	  data: function data() {
+	    return {
+	      requestParams: {
+	        planList: {
+	          selection: 'Two'
+	        },
+	        deviceList: {
+	          Id: null,
+	          title: null,
+	          color: null
+	        }
+	      }
+	    };
+	  }
+	};
+
+/***/ },
+/* 145 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(146)
+	__vue_script__ = __webpack_require__(148)
+	if (__vue_script__ &&
+	    __vue_script__.__esModule &&
+	    Object.keys(__vue_script__).length > 1) {
+	  console.warn("[vue-loader] src/components/planList.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(149)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) {
+	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
+	}
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  var id = "_v-dc5ae288/planList.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 146 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(147);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(23)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js!./../../node_modules/sass-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./planList.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js!./../../node_modules/sass-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./planList.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 147 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(9)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".blue {\n  color: #00f; }\n\ninput[type=\"radio\"] {\n  display: none; }\n\n.rdo_card {\n  display: inline-block;\n  width: 100%;\n  height: 40px;\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 148 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var planList = {};
+	module.exports = {
+	  data: function data() {
+	    return {
+	      checkedNames: [],
+	      chkAgree: false,
+	      selection: planList.selection
+	    };
+	  },
+	  ready: function ready() {
+	    console.log('parent.requestParams: ', this.$parent.requestParams);
+	    planList = this.$parent.requestParams.planList;
+	    console.log('planList: ', planList.selection);
+	  }
+	};
+
+/***/ },
+/* 149 */
+/***/ function(module, exports) {
+
+	module.exports = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-xs-8\">\n      <h3>PlanList</h3>\n    </div>\n    <div class=\"col-xs-4\">\n      <p>Context Link 1 : <a href=\"#\">here</a></p>\n      <p>Context Link 2 : <a href=\"#\">here</a></p>\n      <p>Context Link 3 : <a href=\"#\">here</a></p>\n    </div>\n  </div>\n\n  <h5>Selection: {{ selection }}</h5>\n\n  <div class=\"row\">\n    <div class=\"col-xs-6\">\n      <input type=\"radio\" id=\"one\" value=\"planA\" v-model=\"selection\">\n      <label for=\"one\" class=\"btn btn-default rdo_card\">Plan A</label>\n    </div>\n    <div class=\"col-xs-6\">\n      <input type=\"radio\" id=\"two\" value=\"planB\" v-model=\"selection\">\n      <label for=\"two\" class=\"btn btn-default rdo_card\">Plan B</label>\n    </div>\n  </div>\n\n  <hr>\n\n  <div v-if=\"selection === 'planA'\">\n    Plan A\n  </div>\n  <div v-if=\"selection === 'planB'\">\n    Plan B\n    <p>\n      <span>Checked names: {{ checkedNames | json }}</span>\n    </p>\n    <p>\n      <input type=\"checkbox\" id=\"jack\" value=\"Jack\" v-model=\"checkedNames\">\n      <label for=\"jack\">Jack</label>\n    </p>\n    <p>\n      <input type=\"checkbox\" id=\"john\" value=\"John\" v-model=\"checkedNames\">\n      <label for=\"john\">John</label>\n    </p>\n    <p>\n      <input type=\"checkbox\" id=\"mike\" value=\"Mike\" v-model=\"checkedNames\">\n      <label for=\"mike\">Mike</label>\n    </p>\n  </div>\n  <div class=\"text-center\">\n    <p>\n      <input type=\"checkbox\" id=\"chk_agree\" name=\"chk_agree\" v-model=\"chkAgree\">\n      <label for=\"chk_agree\">AGREE: {{chkAgree}}</label>\n    </p>\n    <p>\n      <a class=\"btn btn-primary\" v-bind:disabled=\"!chkAgree\" v-link=\"{ path: '/DeviceList' }\">NEXT</a>\n    </p>\n  </div>\n</div>\n";
+
+/***/ },
+/* 150 */,
+/* 151 */,
+/* 152 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__vue_template__ = __webpack_require__(153)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) {
+	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
+	}
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  var id = "_v-a725d8fa/footerNav.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 153 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div id=\"footerNav\" class=\"container text-center\">\n  <ul class=\"list-inline text-left\">\n    <li>graminum</li>\n    <li>GRAMINUM</li>\n  </ul>\n</div>\n";
 
 /***/ }
 /******/ ]);

@@ -5,7 +5,7 @@
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar">a</span>
+          <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
@@ -17,9 +17,10 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a  v-link="{ path: '/BasicPlan' }">BasicPlan</a></li>
-          <li><a  v-link="{ path: '/pageA' }">Link 1</a></li>
-          <li><a  v-link="{ path: '/pageB' }">Link 2</a></li>
+          <li><a v-link="{ path: '/PlanList' }">PlanList</a></li>
+          <li><a v-link="{ path: '/DeviceList' }">DeviceList</a></li>
+          <li><a v-link="{ path: '/pageA' }">Link 1</a></li>
+          <li><a v-link="{ path: '/pageB' }">Link 2</a></li>
         </ul>
       </div>
     </nav>

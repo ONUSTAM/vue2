@@ -58,6 +58,7 @@
             url: 'https://qiita.com/api/v2/items?page=1&per_page=5',
             dataType: 'json',
             success: function(json) {
+              console.log(json);
               that.$data.items = json;
             },
             data: null
