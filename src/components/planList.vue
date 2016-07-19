@@ -27,25 +27,25 @@
       </div>
     </div>
 
-    <h5>Selection: {{ selection }}</h5>
+    <h5>Selection: {{ requestparams.planList.selection }}</h5>
 
     <div class="row">
       <div class="col-xs-6">
-        <input type="radio" id="one" value="planA" v-model="selection">
-        <label for="one" class="btn btn-default rdo_card">Plan A</label>
+        <input type="radio" id="planA" value="planA" v-model="requestparams.planList.selection">
+        <label for="planA" class="btn btn-default rdo_card">Plan A</label>
       </div>
       <div class="col-xs-6">
-        <input type="radio" id="two" value="planB" v-model="selection">
-        <label for="two" class="btn btn-default rdo_card">Plan B</label>
+        <input type="radio" id="planB" value="planB" v-model="requestparams.planList.selection">
+        <label for="planB" class="btn btn-default rdo_card">Plan B</label>
       </div>
     </div>
 
     <hr>
 
-    <div v-if="selection === 'planA'">
+    <div v-if="requestparams.planList.selection === 'planA'">
       Plan A
     </div>
-    <div v-if="selection === 'planB'">
+    <div v-if="requestparams.planList.selection === 'planB'">
       Plan B
       <p>
         <span>Checked names: {{ checkedNames | json }}</span>
@@ -80,17 +80,25 @@
 
   };
   module.exports = {
+    name: 'PlanList',
+    props: {
+      requestparams: Object
+    },
+    computed: {
+      // selection () {
+      //   console.log('PlanList.selection');
+      //   // return this.requestparams.planList.selection
+      //   return this.$data.selectionA = this.requestparams.planList.selection
+      // },
+    },
+    ready: function() {
+      console.log('PlanList.ready');
+    },
     data: function () {
       return {
         checkedNames: [],
-        chkAgree: false,
-        selection: planList.selection
+        chkAgree: false
       }
-    },
-    ready: function() {
-      console.log('parent.requestParams: ', this.$parent.requestParams);
-      planList = this.$parent.requestParams.planList;
-      console.log('planList: ', planList.selection);
     }
   }
 </script>

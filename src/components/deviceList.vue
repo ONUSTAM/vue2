@@ -10,7 +10,7 @@
       border: solid 1px #ddd;
       border-radius: 2px;
       padding: 8px;
-      margin: 4px 0;
+      margin: 0 0 8px;
       height: 320px;
     }
   }
@@ -39,6 +39,9 @@
   var moment = require('moment');
 
   module.exports = {
+    props: {
+      requestparams: Object
+    },
     data: function () {
       return {
         items: ''
@@ -46,7 +49,7 @@
     },
     ready: function() {
       this.getJson();
-      console.log('parent: ', this.$parent.requestParams);
+      console.log('parent: ', this.$parent.requestparams);
     },
     methods: {
       getJson: function() {

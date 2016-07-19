@@ -26,3 +26,11 @@
     </nav>
   </div>
 </template>
+<script>
+
+  module.exports = {
+    name: 'HeaderNav',
+    props: {}
+  }
+
+</script>
