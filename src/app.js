@@ -2,15 +2,21 @@ var Vue = require('vue')
 var VueRouter = require('vue-router')
 var $ = require('jquery');
 var _ = require('lodash');
-var bootstrapSCSS = require('../styles/main.scss');
+
+// require("bootstrap-sass-loader");
+// var bootstrapSCSS = require('../styles/main.scss');
+require('../styles/main.scss');
 
 // var headerNav = Vue.extend(require('../src/components/headerNav.vue'));
 var footerNav = Vue.extend(require('../src/components/footerNav.vue'));
 var AddPlan = Vue.extend(require('../src/components/addPlan.vue'));
-var PlanList = Vue.extend(require('../src/components/planList.vue'));
-var DeviceList = Vue.extend(require('../src/components/deviceList.vue'));
-var PageA = Vue.extend(require('../src/components/pageA.vue'));
-var PageB = Vue.extend(require('../src/components/pageB.vue'));
+var PlanList = Vue.extend(require('../src/pages/planList.vue'));
+var PlanDetail = Vue.extend(require('../src/pages/planDetail.vue'));
+var DeviceList = Vue.extend(require('../src/pages/deviceList.vue'));
+var UserInfoConfirm = Vue.extend(require('../src/pages/userInfoConfirm.vue'));
+var UserInfoConfirmEdit = Vue.extend(require('../src/pages/userInfoConfirmEdit.vue'));
+var AddPlanConfirm = Vue.extend(require('../src/pages/addPlanConfirm.vue'));
+var AddPlanCompletion = Vue.extend(require('../src/pages/addPlanCompletion.vue'));
 
 Vue.use(VueRouter)
 // Vue.component('header-nav', headerNav)
@@ -21,17 +27,29 @@ Vue.component('AddPlan', AddPlan)
 var router = new VueRouter();
 
 router.map({
+  '/': {
+    component: PlanList
+  },
   '/PlanList': {
     component: PlanList
+  },
+  '/PlanDetail': {
+    component: PlanDetail
   },
   '/DeviceList': {
     component: DeviceList
   },
-  '/pageA': {
-    component: PageA
+  '/UserInfoConfirm': {
+    component: UserInfoConfirm
   },
-  '/pageB': {
-    component: PageB
+  '/UserInfoConfirmEdit': {
+    component: UserInfoConfirmEdit
+  },
+  '/AddPlanConfirm': {
+    component: AddPlanConfirm
+  },
+  '/AddPlanCompletion': {
+    component: AddPlanCompletion
   }
 })
 
@@ -41,4 +59,4 @@ router.map({
 //   '*': '/pageA'
 // })
 
-router.start(AddPlan, '#addPlan')
+router.start(AddPlan, '#app')

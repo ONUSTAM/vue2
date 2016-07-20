@@ -17,15 +17,18 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a v-link="{ path: '/PlanList' }">PlanList</a></li>
-          <li><a v-link="{ path: '/DeviceList' }">DeviceList</a></li>
-          <li><a v-link="{ path: '/pageA' }">Link 1</a></li>
-          <li><a v-link="{ path: '/pageB' }">Link 2</a></li>
+          <li><a v-link="{ path: '/PlanList' }">Plan List</a></li>
+          <li><a v-link="{ path: '/DeviceList' }">Device List</a></li>
+          <li><a v-link="{ path: '/PlanDetail' }">Plan Detail</a></li>
+          <li><a v-link="{ path: '/UserInfoConfirm' }">UserInfo Confirm</a></li>
+          <li><a v-link="{ path: '/AddPlanConfirm' }">AddPlan Confirm</a></li>
+          <li><a v-link="{ path: '/AddPlanCompletion' }">AddPlan Completion</a></li>
         </ul>
       </div>
     </nav>
   </div>
 </template>
+
 <script>
 
   module.exports = {

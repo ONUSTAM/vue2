@@ -1,10 +1,4 @@
 <style lang="sass">
-  #example-1 {
-    h3 {
-      word-wrap:break-word;
-      overflow-wrap:break-word;
-    }
-  }
   .cardList {
     .wrap {
       border: solid 1px #ddd;
@@ -12,6 +6,11 @@
       padding: 8px;
       margin: 0 0 8px;
       height: 320px;
+
+      .card-title {
+        word-wrap:break-word;
+        overflow-wrap:break-word;
+      }
     }
   }
 </style>
